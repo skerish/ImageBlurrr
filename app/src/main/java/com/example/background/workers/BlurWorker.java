@@ -14,7 +14,7 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.example.background.Constants;
-import com.example.background.R;
+
 
 public class BlurWorker extends Worker {
 
@@ -27,13 +27,14 @@ public class BlurWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
+
         Context context = getApplicationContext();
         String resourceUri = getInputData().getString(Constants.KEY_IMAGE_URI);
+
+        WorkerUtils.makeStatusNotification("Doing BlurWorker", context);
+        WorkerUtils.sleep();
+
         try {
-
-//            // Get the image
-//            Bitmap picture = BitmapFactory.decodeResource(context.getResources(), R.drawable.test);
-
             if (TextUtils.isEmpty(resourceUri)){
                 Log.e(TAG, "Invalid input Uri!");
                 throw new IllegalArgumentException("Invalid input Uri");
@@ -60,5 +61,4 @@ public class BlurWorker extends Worker {
             return Result.failure();
         }
     }
-
 }

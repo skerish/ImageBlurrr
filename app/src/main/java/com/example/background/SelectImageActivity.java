@@ -44,6 +44,7 @@ public class SelectImageActivity extends AppCompatActivity {
     private static final String KEY_PERMISSIONS_REQUEST_COUNT = "KEY_PERMISSIONS_REQUEST_COUNT";
     private static final int MAX_NUMBER_REQUEST_PERMISSIONS = 2;
 
+
     private static final List<String> sPermissions = Arrays.asList(
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
